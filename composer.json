@@ -1,0 +1,15 @@
+{
+    "name": "hexlet/code",
+    "description": "Brain games - my first project in hexlet study",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Gorshkov",
+            "email": "megabgg@yandex.ru"
+        }
+    ],
+    "bin": [
+        "bin/brain-games"
+    ],
+    "require": {}
+}
