@@ -6,10 +6,12 @@ use function Brain\Games\Engine\initGame;
 
 function start(): void
 {
+    $params = [];
     $params['rules_game'] = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
     for ($i = 0; $i < 3; $i++) {
         $n = rand(1, 90);
+        $round = [];
         $round['question'] = "Question: {$n}";
         $round['answer'] = isPrime($n) ? 'yes' : 'no';
         $params['rounds'][] = $round;
@@ -18,7 +20,7 @@ function start(): void
     initGame($params);
 }
 
-function isPrime($num): bool
+function isPrime(int $num): bool
 {
     if ($num == 1) {
         return false;

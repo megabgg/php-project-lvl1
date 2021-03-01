@@ -6,6 +6,7 @@ use function Brain\Games\Engine\initGame;
 
 function start(): void
 {
+    $params = [];
     $params['rules_game'] = 'What number is missing in the progression?';
 
     for ($i = 0; $i < 3; $i++) {
@@ -14,6 +15,7 @@ function start(): void
         $hiddenNumber = rand(0, $progressionLength - 1);
         $generatedProgression = '';
         $count = 0;
+        $round = [];
         for ($j = 0; $j < $progressionLength; $j++) {
             $count += $step;
             if ($j == $hiddenNumber) {
