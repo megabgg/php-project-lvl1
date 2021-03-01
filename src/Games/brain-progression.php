@@ -4,7 +4,7 @@ namespace Brain\Progression;
 
 use function Brain\Games\Engine\initGame;
 
-function start():void
+function start(): void
 {
     $params['rules_game'] = 'What number is missing in the progression?';
 
@@ -17,10 +17,10 @@ function start():void
         for ($j = 0; $j < $progressionLength; $j++) {
             $count += $step;
             if ($j == $hiddenNumber) {
-                $generatedProgression .= "..".' ';
+                $generatedProgression .= ".." . ' ';
                 $round['answer'] = $count;
             } else {
-                $generatedProgression .= $count.' ';
+                $generatedProgression .= $count . ' ';
             }
         }
 

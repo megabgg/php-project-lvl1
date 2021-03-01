@@ -5,7 +5,7 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function initGame($params) : void
+function initGame($params): void
 {
     if (checkParams($params)) {
         runGame($params);
@@ -16,7 +16,7 @@ function initGame($params) : void
 }
 
 
-function checkParams($params) : bool
+function checkParams($params): bool
 {
     if (!$params['rules_game']) {
         return false;
@@ -29,7 +29,7 @@ function checkParams($params) : bool
     return true;
 }
 
-function getNamePlayer() : string
+function getNamePlayer(): string
 {
     $name = prompt('May I have your name?');
     /*if ($name) {
@@ -39,7 +39,7 @@ function getNamePlayer() : string
     return $name;
 }
 
-function runGame($params) : void
+function runGame($params): void
 {
     line('Welcome to the Brain Game!');
     $playerName = getNamePlayer();
