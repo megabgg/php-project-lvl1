@@ -5,57 +5,28 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function initGame(array $params): void
-{
-    if (checkParams($params)) {
-        runGame($params);
-    } else {
-        line("Parameter error");
-        exit;
-    }
-}
+const ROUNDS = 3;
 
-
-function checkParams(array $params): bool
-{
-    if (!$params['rules_game']) {
-        return false;
-    }
-    foreach ($params['rounds'] as $round) {
-        if (!$round['answer'] || !$round['question']) {
-            return false;
-        }
-    }
-    return true;
-}
-
-function getNamePlayer(): string
-{
-    $name = prompt('May I have your name?');
-    /*if ($name) {
-        line("Player name not can empty!");
-        return getNamePlayer();
-    }*/
-    return $name;
-}
-
-function runGame(array $params): void
+function init(string $rulesGame, callable $game): void
 {
     line('Welcome to the Brain Game!');
-    $playerName = getNamePlayer();
+    $playerName = prompt('May I have your name?');
     line("Hello, %s!", $playerName);
 
-    line($params['rules_game']);
+    line($rulesGame);
+    for ($i = 0; $i < ROUNDS; $i++) {
+        ['question' => $question, 'answer' => $answer] = $game();
 
-    foreach ($params['rounds'] as $round) {
-        $answer = prompt($round['question']);
-        if ($answer == $round['answer']) {
+        $userAnswer = prompt($question);
+
+        if ($answer == $userAnswer) {
             line('Correct!');
         } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$round['answer']}'.");
+            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$answer}'.");
             line("Let's try again, {$playerName}!");
             exit;
         }
     }
+
     line("Congratulations, {$playerName}!");
 }

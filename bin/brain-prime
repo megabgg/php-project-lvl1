@@ -2,7 +2,10 @@
 
 <?php
 
+use function Brain\Prime\game;
+use function Brain\Games\Engine\init;
+
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
 require_once $autoloadPath;
 
-Brain\Prime\start();
+init(...game());

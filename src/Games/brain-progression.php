@@ -2,33 +2,37 @@
 
 namespace Brain\Progression;
 
-use function Brain\Games\Engine\initGame;
+const DESCRIPTION = 'What number is missing in the progression?';
 
-function start(): void
+function game(): array
 {
-    $params = [];
-    $params['rules_game'] = 'What number is missing in the progression?';
-
-    for ($i = 0; $i < 3; $i++) {
-        $step = rand(1, 10);
+    $game = function () {
+        $progressionStep = rand(1, 10);
         $progressionLength = rand(6, 10);
-        $hiddenNumber = rand(0, $progressionLength - 1);
-        $generatedProgression = '';
-        $count = 0;
-        $round = [];
-        for ($j = 0; $j < $progressionLength; $j++) {
-            $count += $step;
-            if ($j == $hiddenNumber) {
-                $generatedProgression .= ".." . ' ';
-                $round['answer'] = $count;
-            } else {
-                $generatedProgression .= $count . ' ';
-            }
+        $progressionHideItem = rand(0, $progressionLength - 1);
+        $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
+        ['question' => $question, 'answer' => $answer] = $progression;
+        return [
+            'question' => implode(" ", $question),
+            'answer'   => $answer,
+        ];
+    };
+
+    return [DESCRIPTION, $game];
+}
+
+function getProgression(int $step, int $length, int $hideNumber): array
+{
+    $currentCount = 0;
+    $result = [];
+    for ($j = 0; $j < $length; $j++) {
+        $currentCount += $step;
+        if ($j == $hideNumber) {
+            $result['question'][] = "..";
+            $result['answer'] = $currentCount;
+        } else {
+            $result['question'][] = $currentCount . ' ';
         }
-
-        $round['question'] = "Question: {$generatedProgression}";
-        $params['rounds'][] = $round;
     }
-
-    initGame($params);
+    return $result;
 }

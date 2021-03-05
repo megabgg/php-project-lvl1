@@ -2,22 +2,19 @@
 
 namespace Brain\Prime;
 
-use function Brain\Games\Engine\initGame;
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-function start(): void
+function game(): array
 {
-    $params = [];
-    $params['rules_game'] = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+    $game = function () {
+        $num = rand(1, 90);
+        return [
+            'question' => "Question: {$num}",
+            'answer'   => isPrime($num) ? "yes" : "no",
+        ];
+    };
 
-    for ($i = 0; $i < 3; $i++) {
-        $n = rand(1, 90);
-        $round = [];
-        $round['question'] = "Question: {$n}";
-        $round['answer'] = isPrime($n) ? 'yes' : 'no';
-        $params['rounds'][] = $round;
-    }
-
-    initGame($params);
+    return [DESCRIPTION, $game];
 }
 
 function isPrime(int $num): bool

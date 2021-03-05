@@ -2,20 +2,22 @@
 
 namespace Brain\Even;
 
-use function Brain\Games\Engine\initGame;
+const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function start(): void
+function game(): array
 {
-    $params = [];
-    $params['rules_game'] = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $game = function () {
+        $num = rand(1, 100);
+        return [
+            'question' => "Question: {$num}",
+            'answer'   => getAnswer($num),
+        ];
+    };
 
-    for ($i = 0; $i < 3; $i++) {
-        $n = rand(1, 15);
-        $round = [];
-        $round['question'] = "Question: {$n}";
-        $round['answer'] = $n % 2 == 0 ? 'yes' : 'no';
-        $params['rounds'][] = $round;
-    }
+    return [DESCRIPTION, $game];
+}
 
-    initGame($params);
+function getAnswer($num): string
+{
+    return $num % 2 == 0 ? 'yes' : 'no';
 }
