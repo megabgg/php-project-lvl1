@@ -13,7 +13,7 @@ function game(): array
         $operation = OPERATIONS[array_rand(OPERATIONS)];
 
         return [
-            'question' => "Question: {$num1}{$operation}{$num2}",
+            'question' => "Question: {$num1} {$operation} {$num2}",
             'answer'   => calc($num1, $num2, $operation),
         ];
     };
