@@ -13,7 +13,7 @@ function game(): array
         $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
         ['question' => $question, 'answer' => $answer] = $progression;
         return [
-            'question' => "Question: ".implode(" ", $question),
+            'question' => "Question: " . implode(" ", $question),
             'answer'   => $answer,
         ];
     };
