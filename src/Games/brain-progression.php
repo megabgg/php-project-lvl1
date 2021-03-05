@@ -6,7 +6,7 @@ const DESCRIPTION = 'What number is missing in the progression?';
 
 function game(): array
 {
-    $game = function () {
+    $game = function (): array {
         $progressionStep = rand(1, 10);
         $progressionLength = rand(6, 10);
         $progressionHideItem = rand(0, $progressionLength - 1);

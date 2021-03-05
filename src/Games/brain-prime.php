@@ -6,7 +6,7 @@ const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 function game(): array
 {
-    $game = function () {
+    $game = function (): array {
         $num = rand(1, 90);
         return [
             'question' => "Question: {$num}",

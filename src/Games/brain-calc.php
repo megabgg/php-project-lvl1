@@ -7,7 +7,7 @@ const OPERATIONS = ["+","-","*",];
 
 function game(): array
 {
-    $game = function () {
+    $game = function (): array {
         $num1 = rand(1, 100);
         $num2 = rand(1, 100);
         $operation = OPERATIONS[array_rand(OPERATIONS)];
@@ -31,6 +31,6 @@ function calc(int $num1, int $num2, string $operation): int
         case "-":
             return $num1 - $num2;
         default:
-            return false;
+            return 0;
     }
 }

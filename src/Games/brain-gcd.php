@@ -2,13 +2,11 @@
 
 namespace Brain\Gcd;
 
-use function Brain\Games\Engine\initGame;
-
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
 function game(): array
 {
-    $game = function () {
+    $game = function (): array {
         $num1 = rand(1, 20);
         $num2 = rand(1, 20);
         return [

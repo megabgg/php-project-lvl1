@@ -6,7 +6,7 @@ const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 function game(): array
 {
-    $game = function () {
+    $game = function (): array {
         $num = rand(1, 100);
         return [
             'question' => "Question: {$num}",
@@ -17,7 +17,7 @@ function game(): array
     return [DESCRIPTION, $game];
 }
 
-function getAnswer($num): string
+function getAnswer(int $num): string
 {
     return $num % 2 == 0 ? 'yes' : 'no';
 }
