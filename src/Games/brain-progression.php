@@ -31,7 +31,7 @@ function getProgression(int $step, int $length, int $hideNumber): array
             $result['question'][] = "..";
             $result['answer'] = $currentCount;
         } else {
-            $result['question'][] = $currentCount . ' ';
+            $result['question'][] = $currentCount;
         }
     }
     return $result;
