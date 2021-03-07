@@ -6,7 +6,7 @@ use function Brain\Games\Engine\init;
 
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
-function game()
+function game(): bool
 {
     return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }

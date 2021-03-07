@@ -7,7 +7,7 @@ use function Brain\Games\Engine\init;
 const DESCRIPTION = 'What is the result of the expression?';
 const OPERATIONS = ["+", "-", "*",];
 
-function game()
+function game(): bool
 {
     return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
@@ -32,7 +32,5 @@ function calc(int $firstNum, int $secondNum, string $operation): int
             return $firstNum * $secondNum;
         case "-":
             return $firstNum - $secondNum;
-        default:
-            throw new Error('Unknown operation!');
     }
 }

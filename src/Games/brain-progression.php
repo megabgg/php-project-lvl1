@@ -6,7 +6,7 @@ use function Brain\Games\Engine\init;
 
 const DESCRIPTION = 'What number is missing in the progression?';
 
-function game()
+function game(): bool
 {
     return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
@@ -17,7 +17,9 @@ function generateQuestionAndAnswer(): array
     $progressionLength = rand(6, 10);
     $progressionHideItem = rand(0, $progressionLength - 1);
     $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
-    return $progression;
+    $answer = $progression['answer'];
+    $question = implode(" ", $progression['question']);
+    return [$answer, $question];
 }
 
 function getProgression(int $step, int $length, int $hideNumber): array
@@ -33,5 +35,5 @@ function getProgression(int $step, int $length, int $hideNumber): array
             $result['question'][] = $currentCount;
         }
     }
-    return [implode(" ", $result['question']), $result['answer']];
+    return $result;
 }

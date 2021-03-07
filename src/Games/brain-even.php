@@ -6,7 +6,7 @@ use function Brain\Games\Engine\init;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function game()
+function game(): bool
 {
     return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
