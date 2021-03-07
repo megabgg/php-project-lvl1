@@ -19,7 +19,7 @@ function generateQuestionAndAnswer(): array
     $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
     $answer = $progression['answer'];
     $question = implode(" ", $progression['question']);
-    return [$answer, $question];
+    return [$question, $answer];
 }
 
 function getProgression(int $step, int $length, int $hideNumber): array
