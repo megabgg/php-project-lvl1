@@ -26,11 +26,11 @@ function generateQuestionAndAnswer(): array
 function calc(int $firstNum, int $secondNum, string $operation): int
 {
     switch ($operation) {
-        case "+":
-            return $firstNum + $secondNum;
         case "*":
             return $firstNum * $secondNum;
         case "-":
             return $firstNum - $secondNum;
+        default:
+            return $firstNum + $secondNum;
     }
 }
