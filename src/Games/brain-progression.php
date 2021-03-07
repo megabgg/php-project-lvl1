@@ -17,9 +17,7 @@ function generateQuestionAndAnswer(): array
     $progressionLength = rand(6, 10);
     $progressionHideItem = rand(0, $progressionLength - 1);
     $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
-    [$question, $answer] = $progression;
-    $question = implode(" ", $question);
-    return [$question, $answer];
+    return $progression;
 }
 
 function getProgression(int $step, int $length, int $hideNumber): array
@@ -35,5 +33,5 @@ function getProgression(int $step, int $length, int $hideNumber): array
             $result['question'][] = $currentCount;
         }
     }
-    return $result;
+    return [implode(" ", $result['question']),$result['answer']];
 }
