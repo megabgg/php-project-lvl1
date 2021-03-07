@@ -33,5 +33,5 @@ function getProgression(int $step, int $length, int $hideNumber): array
             $result['question'][] = $currentCount;
         }
     }
-    return [implode(" ", $result['question']),$result['answer']];
+    return [implode(" ", $result['question']), $result['answer']];
 }
