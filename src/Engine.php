@@ -5,26 +5,27 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const ROUNDS = 3;
+const GAME_ROUNDS_COUNT = 3;
 
-function init(string $rulesGame, callable $game): void
+function init(string $gameRule, callable $game): void
 {
     line('Welcome to the Brain Game!');
     $playerName = prompt('May I have your name?');
     line("Hello, %s!", $playerName);
 
-    line($rulesGame);
-    for ($i = 0; $i < ROUNDS; $i++) {
-        ['question' => $question, 'answer' => $answer] = $game();
+    line($gameRule);
+    for ($i = 0; $i < GAME_ROUNDS_COUNT; $i++) {
+        [$question, $answer] = $game();
 
-        $userAnswer = prompt($question);
+        line("Question: {$question}");
+        $userAnswer = prompt("Your answer");
 
         if ($answer == $userAnswer) {
             line('Correct!');
         } else {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$answer}'.");
             line("Let's try again, {$playerName}!");
-            exit;
+            return;
         }
     }
 

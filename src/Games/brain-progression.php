@@ -2,23 +2,24 @@
 
 namespace Brain\Progression;
 
+use function Brain\Games\Engine\init;
+
 const DESCRIPTION = 'What number is missing in the progression?';
 
-function game(): array
+function game()
 {
-    $game = function (): array {
-        $progressionStep = rand(1, 10);
-        $progressionLength = rand(6, 10);
-        $progressionHideItem = rand(0, $progressionLength - 1);
-        $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
-        ['question' => $question, 'answer' => $answer] = $progression;
-        return [
-            'question' => "Question: " . implode(" ", $question),
-            'answer'   => $answer,
-        ];
-    };
+    return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
+}
 
-    return [DESCRIPTION, $game];
+function generateQuestionAndAnswer(): array
+{
+    $progressionStep = rand(1, 10);
+    $progressionLength = rand(6, 10);
+    $progressionHideItem = rand(0, $progressionLength - 1);
+    $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
+    [$question, $answer] = $progression;
+    $question = implode(" ", $question);
+    return [$question, $answer];
 }
 
 function getProgression(int $step, int $length, int $hideNumber): array

@@ -2,19 +2,21 @@
 
 namespace Brain\Prime;
 
+use function Brain\Games\Engine\init;
+
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-function game(): array
+function game()
 {
-    $game = function (): array {
-        $num = rand(1, 90);
-        return [
-            'question' => "Question: {$num}",
-            'answer'   => isPrime($num) ? "yes" : "no",
-        ];
-    };
+    return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
+}
 
-    return [DESCRIPTION, $game];
+function generateQuestionAndAnswer(): array
+{
+    $num = rand(1, 90);
+    $question = "{$num}";
+    $answer = isPrime($num) ? "yes" : "no";
+    return [$question, $answer];
 }
 
 function isPrime(int $num): bool

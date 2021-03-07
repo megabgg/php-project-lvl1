@@ -3,9 +3,8 @@
 <?php
 
 use function Brain\Even\game;
-use function Brain\Games\Engine\init;
 
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
 require_once $autoloadPath;
 
-init(...game());
+game();
