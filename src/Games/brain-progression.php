@@ -8,7 +8,7 @@ const DESCRIPTION = 'What number is missing in the progression?';
 
 function launchGame(): bool
 {
-    return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    return initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array

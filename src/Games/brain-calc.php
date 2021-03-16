@@ -10,7 +10,7 @@ const OPERATIONS = ["+", "-", "*",];
 
 function launchGame(): bool
 {
-    return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    return initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array

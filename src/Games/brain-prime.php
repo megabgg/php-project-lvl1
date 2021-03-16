@@ -8,7 +8,7 @@ const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 function launchGame(): bool
 {
-    return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    return initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array

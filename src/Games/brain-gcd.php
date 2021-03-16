@@ -8,7 +8,7 @@ const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
 function launchGame(): bool
 {
-    return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    return initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array
