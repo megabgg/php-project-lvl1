@@ -22,5 +22,6 @@ function generateQuestionAndAnswer(): array
 
 function calculateGcd(int $firstNum, int $secondNum): int
 {
-    return $firstNum % $secondNum === 0 ? $secondNum : calculateGcd($secondNum, $firstNum % $secondNum);
+    $modulo = $firstNum % $secondNum;
+    return $modulo === 0 ? $secondNum : calculateGcd($secondNum, $modulo);
 }
