@@ -2,7 +2,7 @@
 
 namespace Brain\Progression;
 
-use function Brain\Games\Engine\init;
+use function Brain\Games\Engine\initializeGame;
 
 const DESCRIPTION = 'What number is missing in the progression?';
 

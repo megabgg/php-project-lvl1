@@ -2,7 +2,7 @@
 
 namespace Brain\Prime;
 
-use function Brain\Games\Engine\init;
+use function Brain\Games\Engine\initializeGame;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 

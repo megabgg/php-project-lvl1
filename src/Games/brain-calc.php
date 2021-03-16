@@ -4,7 +4,7 @@ namespace Brain\Calc;
 
 use Exception;
 
-use function Brain\Games\Engine\init;
+use function Brain\Games\Engine\initializeGame;
 
 const DESCRIPTION = 'What is the result of the expression?';
 const OPERATIONS = ["+", "-", "*",];

@@ -2,7 +2,7 @@
 
 namespace Brain\Even;
 
-use function Brain\Games\Engine\init;
+use function Brain\Games\Engine\initializeGame;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
