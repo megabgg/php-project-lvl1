@@ -2,9 +2,9 @@
 
 <?php
 
-use function Brain\Even\game;
+use function Brain\Even\launchGame;
 
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
 require_once $autoloadPath;
 
-game();
+launchGame();

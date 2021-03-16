@@ -6,7 +6,7 @@ use function Brain\Games\Engine\init;
 
 const DESCRIPTION = 'What number is missing in the progression?';
 
-function game(): bool
+function launchGame(): bool
 {
     return init(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }

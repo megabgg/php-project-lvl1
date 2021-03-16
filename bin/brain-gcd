@@ -2,9 +2,9 @@
 
 <?php
 
-use function Brain\Gcd\game;
+use function Brain\Gcd\launchGame;
 
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
 require_once $autoloadPath;
 
-game();
+launchGame();
