@@ -6,9 +6,9 @@ use function Brain\Games\Engine\init;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-function launchGame(): bool
+function launchGame(): void
 {
-    return initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array
