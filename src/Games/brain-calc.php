@@ -19,12 +19,12 @@ function generateQuestionAndAnswer(): array
     $num2 = rand(1, 100);
     $operation = OPERATIONS[array_rand(OPERATIONS)];
     $question = "{$num1} {$operation} {$num2}";
-    $answer = calc($num1, $num2, $operation);
+    $answer = calculate($num1, $num2, $operation);
 
     return [$question, $answer];
 }
 
-function calc(int $firstNum, int $secondNum, string $operation): int
+function calculate(int $firstNum, int $secondNum, string $operation): int
 {
     switch ($operation) {
         case "*":
