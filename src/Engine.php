@@ -20,7 +20,7 @@ function init(string $gameRule, callable $game): bool
         line("Question: {$question}");
         $userAnswer = prompt("Your answer");
 
-        if ($answer == $userAnswer) {
+        if ($answer === $userAnswer) {
             line('Correct!');
         } else {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$answer}'.");
