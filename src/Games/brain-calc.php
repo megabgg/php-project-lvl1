@@ -3,6 +3,7 @@
 namespace Brain\Calc;
 
 use Exception;
+
 use function Brain\Games\Engine\init;
 
 const DESCRIPTION = 'What is the result of the expression?';
