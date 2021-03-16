@@ -25,6 +25,7 @@ function initializeGame(string $gameRule, callable $getGameParameters): void
         } else {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$answer}'.");
             line("Let's try again, {$playerName}!");
+            return;
         }
     }
 
