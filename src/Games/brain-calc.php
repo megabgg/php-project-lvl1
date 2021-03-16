@@ -2,6 +2,7 @@
 
 namespace Brain\Calc;
 
+use Exception;
 use function Brain\Games\Engine\init;
 
 const DESCRIPTION = 'What is the result of the expression?';
@@ -30,7 +31,9 @@ function calc(int $firstNum, int $secondNum, string $operation): int
             return $firstNum * $secondNum;
         case "-":
             return $firstNum - $secondNum;
-        default:
+        case "+":
             return $firstNum + $secondNum;
+        default:
+            throw new Exception('Unknown operation.');
     }
 }
