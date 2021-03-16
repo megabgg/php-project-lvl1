@@ -15,20 +15,20 @@ function generateQuestionAndAnswer(): array
 {
     $progressionStep = rand(1, 10);
     $progressionLength = rand(6, 10);
-    $progressionHideItem = rand(0, $progressionLength - 1);
-    $progression = getProgression($progressionStep, $progressionLength, $progressionHideItem);
+    $hiddenProgressionStep = rand(0, $progressionLength - 1);
+    $progression = getProgression($progressionStep, $progressionLength, $hiddenProgressionStep);
     $answer = $progression['answer'];
     $question = implode(" ", $progression['question']);
     return [$question, $answer];
 }
 
-function getProgression(int $step, int $length, int $hideNumber): array
+function getProgression(int $step, int $length, int $hiddenStep): array
 {
     $currentCount = 0;
     $result = [];
     for ($j = 0; $j < $length; $j++) {
         $currentCount += $step;
-        if ($j == $hideNumber) {
+        if ($j == $hiddenStep) {
             $result['question'][] = "..";
             $result['answer'] = $currentCount;
         } else {
