@@ -35,6 +35,6 @@ function calculate(int $firstNum, int $secondNum, string $operation): int
         case "+":
             return $firstNum + $secondNum;
         default:
-            throw new Exception('Unknown operation.');
+            throw new Exception('Unknown operation');
     }
 }
