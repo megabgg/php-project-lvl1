@@ -4,14 +4,14 @@ namespace Brain\Calc;
 
 use Exception;
 
-use function Brain\Games\Engine\initializeGame;
+use function Brain\Games\Engine\playGame;
 
 const DESCRIPTION = 'What is the result of the expression?';
 const OPERATIONS = ["+", "-", "*",];
 
 function launchGame(): void
 {
-    initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    playGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array

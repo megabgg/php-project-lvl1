@@ -2,13 +2,13 @@
 
 namespace Brain\Even;
 
-use function Brain\Games\Engine\initializeGame;
+use function Brain\Games\Engine\playGame;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function launchGame(): void
 {
-    initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    playGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array

@@ -7,7 +7,7 @@ use function cli\prompt;
 
 const GAME_ROUNDS_COUNT = 3;
 
-function initializeGame(string $gameRule, callable $getGameParameters): void
+function playGame(string $gameRule, callable $getGameParameters): void
 {
     line('Welcome to the Brain Game!');
     $playerName = prompt('May I have your name?');

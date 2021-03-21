@@ -2,13 +2,13 @@
 
 namespace Brain\Progression;
 
-use function Brain\Games\Engine\initializeGame;
+use function Brain\Games\Engine\playGame;
 
 const DESCRIPTION = 'What number is missing in the progression?';
 
 function launchGame(): void
 {
-    initializeGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
+    playGame(DESCRIPTION, fn() => generateQuestionAndAnswer());
 }
 
 function generateQuestionAndAnswer(): array
